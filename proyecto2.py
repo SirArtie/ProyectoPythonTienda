@@ -57,7 +57,7 @@ while(b==False):
     print("\n-1- Registrar")
     print("-2- Ingresar")
     print("-3- Salir")
-    
+
     #print(inventario)
     """print(inventario['Playera color rosa'])
     print('Numero de articulos disponibles: ',inventario['Playera color rosa'][0])"""
@@ -65,7 +65,7 @@ while(b==False):
     #listarInventario()
     #comprar(8)
     #comprar(8)
-    
+
     x=int(input("\nSeleccione una opción del menú: "))#variable que recibe el valor del menú.
 
     if x==1:#Si "x" es igual a 1, entra en la opción 1 del menú.
@@ -80,9 +80,11 @@ while(b==False):
 
         while(a==False):
             check_nickname=input("\n Ingrese nuevamente el usuario: ")
+            check_nickname2=check_nickname.isalnum() #Validando datos alfanumericos
             check_contraseña=input("Ingrese la contraseña: ")
-            if check_nickname in usuarios:#checa si el nombre ingresado por 2da vez, se encuentra en el diccionario.
-                if usuarios[nickname][0]==check_contraseña:#checa si la contraseña ingresa se encuentra en la lista, posición 0 que está en el diccionario.
+            check_contraseña2=check_contraseña.isalnum() #validando datos alfanumericos.
+            if check_nickname in usuarios and check_nickname2 == True:#checa si el nombre ingresado por 2da vez, se encuentra en el diccionario.
+                if usuarios[nickname][0]==check_contraseña and check_contraseña2 == True:#checa si la contraseña ingresa se encuentra en la lista, posición 0 que está en el diccionario.
                     print("Los datos son correctos, por favor de ingresar lo que se pide")
                     nombre=input("\nNombre:")#llave del diccionario
                     apellido=input("Apellido: ")#0
@@ -118,10 +120,12 @@ while(b==False):
         print("\nVALIDANDO DATOS")
 
         check_nickname=input("\n Ingrese nuevamente el usuario: ")
+        check_nickname2=check_nickname.isalnum()
         check_contraseña=input("Ingrese la contraseña: ")
+        check_contraseña2=check_contraseña.isalnum()
 
-        if check_nickname in usuarios:
-            if usuarios[nickname][0]==check_contraseña:
+        if check_nickname in usuarios and check_nickname2 == True:
+            if usuarios[nickname][0]==check_contraseña and check_contraseña2==True:
                 print("Bienvenido "+nickname)
                 subOpcion2 = 0
                 while subOpcion2!=4:
