@@ -51,7 +51,7 @@ articulo2 = (2,300,'Nike')
 articulo3 = (3,'Chamarra de cuero',800,'CuerosPros')
 doInventary()
 b=False
-while(b==False):
+while(b==False):#Se abren las opciones del menú
     print("\t---Bienvenido a la tienda---")
     #Menú que aparece en pantalla
     print("\n-1- Registrar")
@@ -78,7 +78,7 @@ while(b==False):
         print("\nVALIDANDO DATOS")
         a=False
 
-        while(a==False):
+        while(a==False):#Se muestran las opciones del usuario y contraseña
             check_nickname=input("\n Ingrese nuevamente el usuario: ")
             check_contraseña=input("Ingrese la contraseña: ")
             if check_nickname in usuarios:#checa si el nombre ingresado por 2da vez, se encuentra en el diccionario.
@@ -144,5 +144,5 @@ while(b==False):
         print("Hasta luego, esperamos que vuelva pronto")
         b=True
    
-    else:
+    else:# Esta opción se mostrará si el usuario ingresa otra opción que no se encuentre
         print("Opción inválida, por favor selecciona una opción correcta")
