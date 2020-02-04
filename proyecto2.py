@@ -1,7 +1,7 @@
 import getpass
-nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Juego de Te','Lavadora','Estufa','PC pro gamer 999x')
+nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Tenis para correr grises','Short de playa naranja','Calcetines de cuadros rojos','Sandalias blancas')
 inventario = {}
-informacionArticulos = [[10,'Nike',150],[5,'Bolo',300],[3,'Cuerox',1200],[6,'Vans',200],[4,'PlayMobil',500],[2,'Coff',10000],[12,'Koffer',6000],[1,'ASUS',20000]]
+informacionArticulos = [[10,'Nike',150],[5,'Bolo',300],[3,'Cuerox',1200],[6,'Vans',200],[4,'Adidas'1200],[2,'Martí',250],[12,'Donelli',150],[1,'Havaianas', 400]]
 numeroArticulos = 8
 def doInventary():
     i = 0
@@ -108,7 +108,7 @@ while(b==False):
                 print("Nombre de usuario incorrecto")
 
 
-    if x==2:
+    elif x==2:
         print("\n --INGRESAR--")
         nickname=input("Ingrese el nombre de usuario:")
         contraseña=input("Ingrese la contraseña: ")#posición 0 de la lista
@@ -140,6 +140,9 @@ while(b==False):
             print("Usuario no registrado")
 
 
-    if x==3:
+    elif x==3:
         print("Hasta luego, esperamos que vuelva pronto")
         b=True
+   
+    else:
+        print("Opción inválida, por favor selecciona una opción correcta")
