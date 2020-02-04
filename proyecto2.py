@@ -1,33 +1,44 @@
 import getpass
-nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Juego de Te','Lavadora','Estufa','PC pro gamer 999x')
+"""Normalmente para evitar problemas podemos hacer un inventario que puede ser un diccionario y cada uno de los productos tendria un 
+id diferente, lo cual esta bien, y ademas agregarle la lista de toda su informacion, desde su nombre hasta su talla, estas inicializaciones, son con el fin, de
+solo tener que hacer pequeñas modificaciones al codigo como agregar mas para no tener que modificarlo"""
+nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Pantalon Negro','Sueter blanco','Gorro','Ropa interior')
 inventario = {}
-informacionArticulos = [[10,'Nike',150],[5,'Bolo',300],[3,'Cuerox',1200],[6,'Vans',200],[4,'PlayMobil',500],[2,'Coff',10000],[12,'Koffer',6000],[1,'ASUS',20000]]
+informacionArticulos = [[10,'Nike',150,'M'],[5,'Bolo',300,'G'],[3,'Cuerox',1200,'G'],[6,'Vans',200,'C'],[4,'PlayMobil',500,'M'],[2,'Coff',1000,'M'],[12,'Koffer',670,'C'],[1,'ASUS',230,'C']]
+#Una constante para poder controlar/modificar cuando sea conveniente
 numeroArticulos = 8
+#Esta funcion arma el diccionario inventario con los datos previos
 def doInventary():
     i = 0
     for i in range(len(nombresArticulos)):
         inventario[i+1] =[nombresArticulos[i],informacionArticulos[i]]
-
+#Funcion que muestra la informacion de todos los articulos 
 def mostrarInventario():
     for key in inventario:
         print('Articulo: '+inventario[key][0])
         print('Numero de articulos disponibles: ',inventario[key][1][0])
         print('El fabricante del articulo es: '+inventario[key][1][1])
         print('Costo: ',inventario[key][1][2])
-
+        print('Talla: ',inventario[key][1][3])
+#Esta funcion muestra solo los nombres de los articulos
 def listarInventario():
     for key in inventario:
         print('Articulo numero: ',key)
         print('Nombre del articulo: '+inventario[key][0])
         print("")
-
+#Esta implementa la funcionalidad de las compras
 def comprar(nkey):
-    print('Has elegido el articulo: '+inventario[nkey][0])
-    if inventario[nkey][1][0] > 0:
-        inventario[nkey][1][0] = inventario[nkey][1][0] - 1
-        print('Tu compra se ha realizado exitosamente')
-    else:
-        print('Lo sentimos estimado cliente, el articulo seleccionado esta fuera de stock :c')
+
+	if nkey<=numeroArticulos:
+
+		print('Has elegido el articulo: '+inventario[nkey][0])
+		if inventario[nkey][1][0] > 0:
+			#print("Ingresa tu correo paypal(El mismo que registraste)")
+			inventario[nkey][1][0] = inventario[nkey][1][0] - 1
+			print('Tu compra se ha realizado exitosamente')
+		else:
+			print('Lo sentimos estimado cliente, el articulo seleccionado esta fuera de stock :c')
+#Funcion que hice porque soy flojo y que hueva estar poniendo prints a cada rato
 def menuR(cadena,nOpciones):
     print(cadena)
     n = int(input('Opcion: '))
@@ -45,10 +56,6 @@ usuarios={}
 informacion={}
 lista_informacion=[]
 lista=[]
-
-
-articulo2 = (2,300,'Nike')
-articulo3 = (3,'Chamarra de cuero',800,'CuerosPros')
 doInventary()
 b=False
 while(b==False):
@@ -57,17 +64,7 @@ while(b==False):
     print("\n-1- Registrar")
     print("-2- Ingresar")
     print("-3- Salir")
-
-    #print(inventario)
-    """print(inventario['Playera color rosa'])
-    print('Numero de articulos disponibles: ',inventario['Playera color rosa'][0])"""
-    #mostrarInventario()
-    #listarInventario()
-    #comprar(8)
-    #comprar(8)
-
     x=int(input("\nSeleccione una opción del menú: "))#variable que recibe el valor del menú.
-
     if x==1:#Si "x" es igual a 1, entra en la opción 1 del menú.
         print("\t --REGISTRO--")
         nickname=input("Ingrese el nombre de usuario: ")
@@ -136,12 +133,12 @@ while(b==False):
                         subOpcion2 = menuR('Selecciona una opcion:\n1)Ver los Articulo\n2)Ver informacion completa de todos los articulos\n3)Comprar Articulo\n4)Cerrar Sesion',4)
                         if subOpcion2 == 1:
                             listarInventario()
-                            if subOpcion2 == 2:
-                                mostrarInventario()
-                                if subOpcion2 == 3:
-                                    print('Selecciona alguno del numero de los siguientes articulos')
-                                    listarInventario()
-                                    comprar(menuR('',numeroArticulos))
+                        if subOpcion2 == 2:
+                            mostrarInventario()
+                        if subOpcion2 == 3:
+                            print('Selecciona alguno del numero de los siguientes articulos, si al final no deseas ninguno solo ingresa un numero mayor al del ultimo articulo')
+                            listarInventario()
+                            comprar(menuR('',numeroArticulos+1))
                 else:
                     print("Contraseña Invalida")
             else:
