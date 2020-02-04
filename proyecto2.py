@@ -37,17 +37,25 @@ aqui lo que se hace es tomando en cuenta que los keys son numeros recibir el num
 entonces proceder a comprar el articulo, tambien checa si hay stock, de lo contrario la compra no procede
 Comentario extra: Solo falta la confirmacion de un correo de paypal, tal vez se pueda facilmente solo añadiendo otro parametro
 y comparando la informacion del usuario que ya inicio sesion con su correo en la lista"""
-def comprar(nkey):
-
+def comprar(nkey,userkey):
+    boleanoLoco = False
     if nkey<=numeroArticulos:
 
         print('Has elegido el articulo: '+inventario[nkey][0])
-        if inventario[nkey][1][0] > 0:
-            #print("Ingresa tu correo paypal(El mismo que registraste)")
-            inventario[nkey][1][0] = inventario[nkey][1][0] - 1
-            print('Tu compra se ha realizado exitosamente')
+        correo = input("Ingresa tu correo paypal(El mismo que registraste)\nCorreo: ")
+        if correo == usuarios[userkey][1]:
+            if inventario[nkey][1][0] > 0:
+                inventario[nkey][1][0] = inventario[nkey][1][0] - 1
+
+                print('Tu compra se ha realizado exitosamente')
+                boleanoLoco = True
+            else:
+                print('Lo sentimos estimado cliente, el articulo seleccionado esta fuera de stock :c')
         else:
-            print('Lo sentimos estimado cliente, el articulo seleccionado esta fuera de stock :c')
+            print('Lo sentimos, correo paypal incorrecto')
+    if boleanoLoco == False:
+        print('Lamentamos oir eso, por favor, esperamos que vuelva pronto ;)')
+            
 """Funcion que hice porque soy flojo y que hueva estar poniendo prints a cada rato
 Me gustan este tipo de funciones, basicamente lo que hago es mandarle una cadena que es lo que va a imprimir como si fuera
 un menu recursivo, en el otro parametro pasarle un int con el valor de las opciones y si el usuario  no da una opcion valida lo retiene hasta
@@ -79,6 +87,7 @@ while(b==False):
     print("-2- Ingresar")
     print("-3- Salir")
     x=int(input("\nSeleccione una opción del menú: "))#variable que recibe el valor del menú.
+    print(usuarios)
     if x==1:#Si "x" es igual a 1, entra en la opción 1 del menú.
         print("\t --REGISTRO--")
         nickname=input("Ingrese el nombre de usuario: ")
@@ -88,7 +97,7 @@ while(b==False):
 
         print("\nVALIDANDO DATOS")
 
-        check_nickname=input("\n Ingrese nuevamente el usuario: ")
+        check_nickname=input("\nIngrese nuevamente el usuario: ")
         check_nickname2=check_nickname.isalnum() #Validando datos alfanumericos
         check_contraseña=input("Ingrese la contraseña: ")
         check_contraseña2=check_contraseña.isalnum() #validando datos alfanumericos.
@@ -96,7 +105,7 @@ while(b==False):
             if check_nickname in usuarios and check_nickname2 == True:#checa si el nombre ingresado por 2da vez, se encuentra en el diccionario.
                 if usuarios[nickname][0]==check_contraseña and check_contraseña2 == True:#checa si la contraseña ingresa se encuentra en la lista, posición 0 que está en el diccionario.
                     print("Los datos son correctos, por favor de ingresar lo que se pide")
-                    nombre=input("\nNombre:")#llave del diccionario
+                    nombre=input("\nNombre: ")#llave del diccionario
                     apellido=input("Apellido: ")#0
                     edad=int(input("Edad: "))#1
                     correo=input("Correo: ")#2
@@ -108,6 +117,8 @@ while(b==False):
                     lista_informacion.append(edad)
                     lista_informacion.append(correo)
                     lista_informacion.append(tarjeta)
+                    #Linea totalmente de la autoria del ZORRO
+                    usuarios[nickname].append(paypal)
                     lista_informacion.append(paypal)
                     lista_informacion.append(contra_pay)
                     #Asignando la lista en la llave del diccionario.
@@ -131,7 +142,7 @@ while(b==False):
 
         print("\nVALIDANDO DATOS")
 
-        check_nickname=input("\n Ingrese nuevamente el usuario: ")
+        check_nickname=input("\nIngrese nuevamente el usuario: ")
         check_nickname2=check_nickname.isalnum()
         check_contraseña=input("Ingrese la contraseña: ")
         check_contraseña2=check_contraseña.isalnum()
@@ -150,7 +161,7 @@ while(b==False):
                         if subOpcion2 == 3:
                             print('Selecciona alguno del numero de los siguientes articulos, si al final no deseas ninguno solo ingresa un numero mayor al del ultimo articulo')
                             listarInventario()
-                            comprar(menuR('',numeroArticulos+1))
+                            comprar(menuR('',numeroArticulos+1),nickname)
                 else:
                     print("Contraseña Invalida")
             else:
