@@ -38,7 +38,7 @@ def comprar(nkey):
 			print('Tu compra se ha realizado exitosamente')
 		else:
 			print('Lo sentimos estimado cliente, el articulo seleccionado esta fuera de stock :c')
-#Funcion que hice porque soy flojo y que hueva estar poniendo prints a cada rato
+#Funcion para no tener que colocar prints.
 def menuR(cadena,nOpciones):
     print(cadena)
     n = int(input('Opcion: '))
