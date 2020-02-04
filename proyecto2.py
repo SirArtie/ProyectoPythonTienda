@@ -4,7 +4,7 @@ id diferente, lo cual esta bien, y ademas agregarle la lista de toda su informac
 solo tener que hacer pequeñas modificaciones al codigo como agregar mas para no tener que modificarlo"""
 nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Pantalon Negro','Sueter blanco','Gorro','Ropa interior')
 inventario = {}
-informacionArticulos = [[10,'Nike',150,'M'],[5,'Bolo',300,'G'],[3,'Cuerox',1200,'G'],[6,'Vans',200,'C'],[4,'PlayMobil',500,'M'],[2,'Coff',1000,'M'],[12,'Koffer',670,'C'],[1,'ASUS',230,'C']]
+informacionArticulos = [[10,'Nike',150,'M'],[5,'Bolo',300,'G'],[3,'Cuerox',1200,'G'],[6,'Vans',200,'C'],[4,'Old Navy',500,'M'],[2,'Zara',1000,'M'],[12,'Dockeres',670,'C'],[1,'CK',230,'C']]
 #Una constante para poder controlar/modificar cuando sea conveniente
 numeroArticulos = 8
 #Esta funcion arma el diccionario inventario con los datos previos
@@ -110,7 +110,7 @@ while(b==False):
                 print("El nombre de usuario debe contener un mínimo de 6 carácteres y un máximo de 12")
 
 
-    if x==2:
+    elif x==2:
         print("\n --INGRESAR--")
         nickname=input("Ingrese el nombre de usuario:")
         contraseña=input("Ingrese la contraseña: ")#posición 0 de la lista
@@ -147,6 +147,8 @@ while(b==False):
             print("El nombre de usuario debe contener un mínimo de 6 carácteres y un máximo de 12")
 
 
-    if x==3:
+    elif x==3:
         print("Hasta luego, esperamos que vuelva pronto")
         b=True
+    else: # Esta opción se mostrará si el usuario ingresa otra opción que no se encuentra
+	print("Opción inválida, por favor ingresa una opción que esté en el menú")
