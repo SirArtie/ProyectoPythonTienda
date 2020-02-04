@@ -87,7 +87,7 @@ while(b==False):
 
         check_nickname=input("\n Ingrese nuevamente el usuario: ")
         check_nickname2=check_nickname.isalnum() #Validando datos alfanumericos
-        check_contraseña=input("Ingrese la contraseña: ")
+        check_contraseña=getpass.getpass("Ingrese la contraseña: ")
         check_contraseña2=check_contraseña.isalnum() #validando datos alfanumericos.
         if len(check_nickname) >= 6 and len(check_nickname) <=12: #Verificando el número de carácteres en el nombre de usuario.
             if check_nickname in usuarios and check_nickname2 == True:#checa si el nombre ingresado por 2da vez, se encuentra en el diccionario.
@@ -122,7 +122,7 @@ while(b==False):
     elif x==2:
         print("\n --INGRESAR--")
         nickname=input("Ingrese el nombre de usuario:")
-        contraseña=input("Ingrese la contraseña: ")#posición 0 de la lista
+        contraseña=getpass.getpass("Ingrese la contraseña: ")#posición 0 de la lista
         lista.append(contraseña)#Añadiendo la contraseña a la lista
         usuarios[nickname]=lista#Añade la lista en el valor del diccionario.
 
@@ -130,7 +130,7 @@ while(b==False):
 
         check_nickname=input("\n Ingrese nuevamente el usuario: ")
         check_nickname2=check_nickname.isalnum()
-        check_contraseña=input("Ingrese la contraseña: ")
+        check_contraseña=getpass.getpass("Ingrese la contraseña: ")
         check_contraseña2=check_contraseña.isalnum()
 
         if len(check_nickname) >= 6 and len(check_nickname) <=12:
