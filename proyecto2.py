@@ -5,14 +5,19 @@ solo tener que hacer pequeñas modificaciones al codigo como agregar mas para no
 nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Pantalon Negro','Sueter blanco','Gorro','Ropa interior')
 inventario = {}
 informacionArticulos = [[10,'Nike',150,'M'],[5,'Bolo',300,'G'],[3,'Cuerox',1200,'G'],[6,'Vans',200,'C'],[4,'Old Navy',500,'M'],[2,'Zara',1000,'M'],[12,'Dockeres',670,'C'],[1,'CK',230,'C']]
-#Una constante para poder controlar/modificar cuando sea conveniente
+"""Una constante para poder controlar/modificar cuando sea conveniente"""
 numeroArticulos = 8
-#Esta funcion arma el diccionario inventario con los datos previos
+"""Esta funcion arma el diccionario inventario con los datos previos
+Basicamente lo que hace esta funcion es tomar los nombres de los articulos,que es una tupla y la informacion de cada uno de los articulos y luego 
+itera en un determinado rango que va de 0 al numero de articulos que haya y los va añadiendo al diccionario inventario, de tal manera que
+el primer articulo tiene como cavle uno y asi se va"""
 def doInventary():
     i = 0
     for i in range(len(nombresArticulos)):
         inventario[i+1] =[nombresArticulos[i],informacionArticulos[i]]
-#Funcion que muestra la informacion de todos los articulos
+"""Funcion que muestra la informacion de todos los articulos
+Esta funcion se aprovecha de como pueden ser los for en python y hace que la palabra key, sea un elemento 
+del diccionario y asi va llamando a los 'atributos' que tiene cada uno de los keys y los recorre todo mientras imprime sus caracteristicas"""
 def mostrarInventario():
     for key in inventario:
         print('Articulo: '+inventario[key][0])
@@ -20,25 +25,34 @@ def mostrarInventario():
         print('El fabricante del articulo es: '+inventario[key][1][1])
         print('Costo: ',inventario[key][1][2])
         print('Talla: ',inventario[key][1][3])
-#Esta funcion muestra solo los nombres de los articulos
+"""Esta funcion muestra solo los nombres de los articulos
+La misma idea de antes, pero mas resumida"""
 def listarInventario():
     for key in inventario:
         print('Articulo numero: ',key)
         print('Nombre del articulo: '+inventario[key][0])
         print("")
-#Esta implementa la funcionalidad de las compras
+"""Esta implementa la funcionalidad de las compras
+aqui lo que se hace es tomando en cuenta que los keys son numeros recibir el numero del key para ver si se encuentra en el rango y 
+entonces proceder a comprar el articulo, tambien checa si hay stock, de lo contrario la compra no procede
+Comentario extra: Solo falta la confirmacion de un correo de paypal, tal vez se pueda facilmente solo añadiendo otro parametro
+y comparando la informacion del usuario que ya inicio sesion con su correo en la lista"""
 def comprar(nkey):
 
-	if nkey<=numeroArticulos:
+    if nkey<=numeroArticulos:
 
-		print('Has elegido el articulo: '+inventario[nkey][0])
-		if inventario[nkey][1][0] > 0:
-			#print("Ingresa tu correo paypal(El mismo que registraste)")
-			inventario[nkey][1][0] = inventario[nkey][1][0] - 1
-			print('Tu compra se ha realizado exitosamente')
-		else:
-			print('Lo sentimos estimado cliente, el articulo seleccionado esta fuera de stock :c')
-#Funcion para no tener que colocar prints.
+        print('Has elegido el articulo: '+inventario[nkey][0])
+        if inventario[nkey][1][0] > 0:
+            #print("Ingresa tu correo paypal(El mismo que registraste)")
+            inventario[nkey][1][0] = inventario[nkey][1][0] - 1
+            print('Tu compra se ha realizado exitosamente')
+        else:
+            print('Lo sentimos estimado cliente, el articulo seleccionado esta fuera de stock :c')
+"""Funcion que hice porque soy flojo y que hueva estar poniendo prints a cada rato
+Me gustan este tipo de funciones, basicamente lo que hago es mandarle una cadena que es lo que va a imprimir como si fuera
+un menu recursivo, en el otro parametro pasarle un int con el valor de las opciones y si el usuario  no da una opcion valida lo retiene hasta
+que sea una opcion valida
+Comentario extra: Aqui haria falta un manejo de excepciones porsi el HD... super ultra 4k usuario se le ocurre la brillante idea de poner caracteres"""
 def menuR(cadena,nOpciones):
     print(cadena)
     n = int(input('Opcion: '))
