@@ -2,12 +2,12 @@ import getpass
 """Normalmente para evitar problemas podemos hacer un inventario que puede ser un diccionario y cada uno de los productos tendria un
 id diferente, lo cual esta bien, y ademas agregarle la lista de toda su informacion, desde su nombre hasta su talla, estas inicializaciones, son con el fin, de
 solo tener que hacer pequeñas modificaciones al codigo como agregar mas para no tener que modificarlo"""
-nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Pantalon Negro','Sueter blanco','Gorro','Ropa interior')
+nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezclilla','Pantalon Negro','Sueter blanco','Gorro','Ropa interior')
 inventario = {}
 informacionArticulos = [[10,'Nike',150,'M'],[5,'Bolo',300,'G'],[3,'Cuerox',1200,'G'],[6,'Vans',200,'C'],[4,'Old Navy',500,'M'],[2,'Zara',1000,'M'],[12,'Dockeres',670,'C'],[1,'CK',230,'C']]
 """Una constante para poder controlar/modificar cuando sea conveniente"""
 numeroArticulos = 8
-"""Esta funcion arma el diccionario inventario con los datos previos
+"""Esta función arma el diccionario inventario con los datos previos
 Basicamente lo que hace esta funcion es tomar los nombres de los articulos,que es una tupla y la informacion de cada uno de los articulos y luego 
 itera en un determinado rango que va de 0 al numero de articulos que haya y los va añadiendo al diccionario inventario, de tal manera que
 el primer articulo tiene como cavle uno y asi se va"""
@@ -153,7 +153,7 @@ while(b==False):
                     print("Bienvenido "+nickname)
                     subOpcion2 = 0
                     while subOpcion2!=4:
-                        subOpcion2 = menuR('Selecciona una opcion:\n1)Ver los Articulo\n2)Ver informacion completa de todos los articulos\n3)Comprar Articulo\n4)Cerrar Sesion',4)
+                        subOpcion2 = menuR('Selecciona una opcion:\n1)Ver los artículos\n2)Ver informacion completa de todos los artículos\n3)Comprar Artículo\n4)Cerrar Sesion',4)
                         if subOpcion2 == 1:
                             listarInventario()
                         if subOpcion2 == 2:
