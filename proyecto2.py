@@ -1,5 +1,5 @@
 import getpass
-"""Normalmente para evitar problemas podemos hacer un inventario que puede ser un diccionario y cada uno de los productos tendria un 
+"""Normalmente para evitar problemas podemos hacer un inventario que puede ser un diccionario y cada uno de los productos tendria un
 id diferente, lo cual esta bien, y ademas agregarle la lista de toda su informacion, desde su nombre hasta su talla, estas inicializaciones, son con el fin, de
 solo tener que hacer pequeñas modificaciones al codigo como agregar mas para no tener que modificarlo"""
 nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Pantalon Negro','Sueter blanco','Gorro','Ropa interior')
@@ -12,7 +12,7 @@ def doInventary():
     i = 0
     for i in range(len(nombresArticulos)):
         inventario[i+1] =[nombresArticulos[i],informacionArticulos[i]]
-#Funcion que muestra la informacion de todos los articulos 
+#Funcion que muestra la informacion de todos los articulos
 def mostrarInventario():
     for key in inventario:
         print('Articulo: '+inventario[key][0])
@@ -73,41 +73,39 @@ while(b==False):
         usuarios[nickname]=lista#Añade la lista en el valor del diccionario.
 
         print("\nVALIDANDO DATOS")
-        a=False
 
-        while(a==False):
-            check_nickname=input("\n Ingrese nuevamente el usuario: ")
-            check_nickname2=check_nickname.isalnum() #Validando datos alfanumericos
-            check_contraseña=input("Ingrese la contraseña: ")
-            check_contraseña2=check_contraseña.isalnum() #validando datos alfanumericos.
-            if len(check_nickname) >= 6 and len(check_nickname) <=12: #Verificando el número de carácteres en el nombre de usuario.
-                if check_nickname in usuarios and check_nickname2 == True:#checa si el nombre ingresado por 2da vez, se encuentra en el diccionario.
-                    if usuarios[nickname][0]==check_contraseña and check_contraseña2 == True:#checa si la contraseña ingresa se encuentra en la lista, posición 0 que está en el diccionario.
-                        print("Los datos son correctos, por favor de ingresar lo que se pide")
-                        nombre=input("\nNombre:")#llave del diccionario
-                        apellido=input("Apellido: ")#0
-                        edad=int(input("Edad: "))#1
-                        correo=input("Correo: ")#2
-                        tarjeta=int(input("No. Tarjeta: "))#3
-                        paypal=input("PayPal: ")#4
-                        contra_pay=input("Contraseña de PayPal: ")#5
+        check_nickname=input("\n Ingrese nuevamente el usuario: ")
+        check_nickname2=check_nickname.isalnum() #Validando datos alfanumericos
+        check_contraseña=input("Ingrese la contraseña: ")
+        check_contraseña2=check_contraseña.isalnum() #validando datos alfanumericos.
+        if len(check_nickname) >= 6 and len(check_nickname) <=12: #Verificando el número de carácteres en el nombre de usuario.
+            if check_nickname in usuarios and check_nickname2 == True:#checa si el nombre ingresado por 2da vez, se encuentra en el diccionario.
+                if usuarios[nickname][0]==check_contraseña and check_contraseña2 == True:#checa si la contraseña ingresa se encuentra en la lista, posición 0 que está en el diccionario.
+                    print("Los datos son correctos, por favor de ingresar lo que se pide")
+                    nombre=input("\nNombre:")#llave del diccionario
+                    apellido=input("Apellido: ")#0
+                    edad=int(input("Edad: "))#1
+                    correo=input("Correo: ")#2
+                    tarjeta=int(input("No. Tarjeta: "))#3
+                    paypal=input("PayPal: ")#4
+                    contra_pay=input("Contraseña de PayPal: ")#5
                     #Guardando datos personales en la lista
-                        lista_informacion.append(apellido)
-                        lista_informacion.append(edad)
-                        lista_informacion.append(correo)
-                        lista_informacion.append(tarjeta)
-                        lista_informacion.append(paypal)
-                        lista_informacion.append(contra_pay)
+                    lista_informacion.append(apellido)
+                    lista_informacion.append(edad)
+                    lista_informacion.append(correo)
+                    lista_informacion.append(tarjeta)
+                    lista_informacion.append(paypal)
+                    lista_informacion.append(contra_pay)
                     #Asignando la lista en la llave del diccionario.
-                        informacion[nombre]=lista
-                        a=True
+                    informacion[nombre]=lista
 
-                    else:
-                        print("Contraseña incorrecta")
+
                 else:
-                    print("Nombre de usuario incorrecto")
+                    print("Contraseña incorrecta")
             else:
-                print("El nombre de usuario debe contener un mínimo de 6 carácteres y un máximo de 12")
+                print("Nombre de usuario incorrecto")
+        else:
+            print("El nombre de usuario debe contener un mínimo de 6 carácteres y un máximo de 12")
 
 
     elif x==2:
@@ -150,5 +148,5 @@ while(b==False):
     elif x==3:
         print("Hasta luego, esperamos que vuelva pronto")
         b=True
-    else: # Esta opción se mostrará si el usuario ingresa otra opción que no se encuentra
-	print("Opción inválida, por favor ingresa una opción que esté en el menú")
+else: # Esta opción se mostrará si el usuario ingresa otra opción que no se encuentra
+    print("Opción inválida, por favor ingresa una opción que esté en el menú")
