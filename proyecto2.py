@@ -56,7 +56,7 @@ def comprar(nkey,userkey):
     if boleanoLoco == False:
         print('Lamentamos oir eso, por favor, esperamos que vuelva pronto ;)')
             
-"""Funcion que hice porque soy flojo y que hueva estar poniendo prints a cada rato
+"""Funcion que sirve para no tener que poner tantos prints
 Me gustan este tipo de funciones, basicamente lo que hago es mandarle una cadena que es lo que va a imprimir como si fuera
 un menu recursivo, en el otro parametro pasarle un int con el valor de las opciones y si el usuario  no da una opcion valida lo retiene hasta
 que sea una opcion valida
