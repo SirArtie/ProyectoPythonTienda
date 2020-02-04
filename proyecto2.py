@@ -2,7 +2,7 @@ import getpass
 """Normalmente para evitar problemas podemos hacer un inventario que puede ser un diccionario y cada uno de los productos tendria un
 id diferente, lo cual esta bien, y ademas agregarle la lista de toda su informacion, desde su nombre hasta su talla, estas inicializaciones, son con el fin, de
 solo tener que hacer pequeñas modificaciones al codigo como agregar mas para no tener que modificarlo"""
-nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezquilla','Pantalon Negro','Sueter blanco','Gorro','Ropa interior')
+nombresArticulos = ('Playera color rosa','Sueter azul','Chamarra de cuero','Pantalon de Mezclilla','Pantalon Negro','Sueter blanco','Gorro','Ropa interior')
 inventario = {}
 informacionArticulos = [[10,'Nike',150,'M'],[5,'Bolo',300,'G'],[3,'Cuerox',1200,'G'],[6,'Vans',200,'C'],[4,'Old Navy',500,'M'],[2,'Zara',1000,'M'],[12,'Dockeres',670,'C'],[1,'CK',230,'C']]
 """Una constante para poder controlar/modificar cuando sea conveniente"""
@@ -48,7 +48,7 @@ def comprar(nkey):
             print('Tu compra se ha realizado exitosamente')
         else:
             print('Lo sentimos estimado cliente, el articulo seleccionado esta fuera de stock :c')
-"""Funcion que hice porque soy flojo y que hueva estar poniendo prints a cada rato
+"""Funcion que sirve para no tener que colocar tantos prints
 Me gustan este tipo de funciones, basicamente lo que hago es mandarle una cadena que es lo que va a imprimir como si fuera
 un menu recursivo, en el otro parametro pasarle un int con el valor de las opciones y si el usuario  no da una opcion valida lo retiene hasta
 que sea una opcion valida
@@ -61,9 +61,6 @@ def menuR(cadena,nOpciones):
         print(cadena)
         n = int(input('Opcion: '))
     return n
-
-
-
 
 
 usuarios={}
@@ -142,13 +139,13 @@ while(b==False):
                     print("Bienvenido "+nickname)
                     subOpcion2 = 0
                     while subOpcion2!=4:
-                        subOpcion2 = menuR('Selecciona una opcion:\n1)Ver los Articulo\n2)Ver informacion completa de todos los articulos\n3)Comprar Articulo\n4)Cerrar Sesion',4)
+                        subOpcion2 = menuR('Selecciona una opcion:\n1)Ver los artículos\n2)Ver informacion completa de todos los artículos\n3)Comprar artículo\n4)Cerrar Sesion',4)
                         if subOpcion2 == 1:
                             listarInventario()
                         if subOpcion2 == 2:
                             mostrarInventario()
                         if subOpcion2 == 3:
-                            print('Selecciona alguno del numero de los siguientes articulos, si al final no deseas ninguno solo ingresa un numero mayor al del ultimo articulo')
+                            print('Selecciona alguno del numero de los siguientes artículos, si al final no deseas ninguno solo ingresa un numero mayor al del ultimo artículo')
                             listarInventario()
                             comprar(menuR('',numeroArticulos+1))
                 else:
@@ -162,5 +159,5 @@ while(b==False):
     elif x==3:
         print("Hasta luego, esperamos que vuelva pronto")
         b=True
-else: # Esta opción se mostrará si el usuario ingresa otra opción que no se encuentra
-    print("Opción inválida, por favor ingresa una opción que esté en el menú")
+    else: # Esta opción se mostrará si el usuario ingresa otra opción que no se encuentra
+        print("Opción inválida, por favor ingresa una opción que esté en el menú")
